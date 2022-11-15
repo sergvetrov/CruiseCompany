@@ -7,16 +7,16 @@ CREATE TABLE IF NOT EXISTS `roles` (
     );
 
 CREATE TABLE IF NOT EXISTS `cruise` (
-                                        `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-                                        `name` varchar(255) NOT NULL,
+    `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `name` varchar(255) NOT NULL,
     `start` datetime NOT NULL,
     `duration` time NOT NULL,
     `passengers_capacity` int NOT NULL
     );
 
 CREATE TABLE IF NOT EXISTS `stuff` (
-                                       `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-                                       `name` varchar(255) NOT NULL,
+    `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `name` varchar(255) NOT NULL,
     `surname` varchar(255) NOT NULL,
     `position` varchar(255) NOT NULL,
     `cruise_id` int NOT NULL,
@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS `stuff` (
     );
 
 CREATE TABLE IF NOT EXISTS `users` (
-                                       `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-                                       `name` varchar(255) NOT NULL,
+    `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `name` varchar(255) NOT NULL,
     `surname` varchar(255) NOT NULL,
     `email` varchar(255) NOT NULL,
     `password` varchar(255) NOT NULL,
@@ -40,8 +40,8 @@ CREATE TABLE IF NOT EXISTS `status` (
     );
 
 CREATE TABLE IF NOT EXISTS `tickets` (
-                                         `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-                                         `price` decimal(15,2) NOT NULL,
+    `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `price` decimal(15,2) NOT NULL,
     `status_id` varchar(50) NOT NULL,
     `user_id` int,
     `cruise_id` int NOT NULL,
@@ -51,16 +51,16 @@ CREATE TABLE IF NOT EXISTS `tickets` (
     );
 
 CREATE TABLE IF NOT EXISTS `ports` (
-                                       `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-                                       `name` varchar(255) NOT NULL,
+    `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `name` varchar(255) NOT NULL,
     `arrival_time` datetime NOT NULL,
     `departure_time` datetime NOT NULL
     );
 
 CREATE TABLE IF NOT EXISTS `cruise_ports` (
-                                              `cruise_id` int NOT NULL,
-                                              `port_id` int NOT NULL,
-                                              PRIMARY KEY(`cruise_id`, `port_id`),
+    `cruise_id` int NOT NULL,
+    `port_id` int NOT NULL,
+    PRIMARY KEY(`cruise_id`, `port_id`),
     CONSTRAINT `cruise_ports_idx` FOREIGN KEY (`cruise_id`) REFERENCES `cruise`(`id`),
     CONSTRAINT `port_idx` FOREIGN KEY (`port_id`) REFERENCES `ports`(`id`)
     );

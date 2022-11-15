@@ -11,6 +11,16 @@ public class User extends Person{
     private int wallet;
     private boolean hasDocument;
 
+    public User() {
+    }
+
+    public User(int idUser, String name, String surname, String email, String password, Role role) {
+        super(idUser, name, surname);
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
     public boolean isHasDocument() {
         return hasDocument;
     }

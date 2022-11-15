@@ -2,6 +2,6 @@ package com.epam.cruisecompany.entity.person;
 
 public enum Role {
     ADMIN,
-    CLIENT,
+    USER,
     NO_ROLE
 }

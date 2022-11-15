@@ -10,6 +10,15 @@ public class Person {
         return id;
     }
 
+    public Person() {
+    }
+
+    public Person(int id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
